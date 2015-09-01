@@ -1,0 +1,23 @@
+{
+  "name": "json_to_msgpack",
+  "version": "1.0.0",
+  "description": "Json to MessagePack converter",
+  "main": "json_to_msgpack.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sapics/json_to_msgpack.git"
+  },
+  "keywords": [
+    "messagepack",
+    "json"
+  ],
+  "author": "sapics",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sapics/json_to_msgpack/issues"
+  },
+  "homepage": "https://github.com/sapics/json_to_msgpack#readme",
+  "dependencies": {
+    "msgpack-lite": "^0.1.11"
+  }
+}
