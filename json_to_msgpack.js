@@ -35,17 +35,18 @@ function eachFiles(filePath, rootPath, callback) {
     }
 }
 
-var req = /\.json$/i
+var reg = /\.json$/i
 eachFiles(process.argv[2], null, function(filePath){
-    if (!(req.test(filePath))) return;
+    if (!(reg.test(filePath))) return;
 
     var data = fs.readFileSync(filePath)
     if(data){
         data = msgpack.encode(JSON.parse(data))
         if (data) {
-            var ws = fs.createWriteStream(filePath.replace(req, '.bin'))
+            var ws = fs.createWriteStream(filePath.replace(reg, '.bin'))
               , es = msgpack.createEncodeStream()
             es.pipe(ws)
+            es.write(data)
         }
     }
 })
