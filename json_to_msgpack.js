@@ -41,12 +41,9 @@ eachFiles(process.argv[2], null, function(filePath){
 
     var data = fs.readFileSync(filePath)
     if(data){
-        data = msgpack.encode(JSON.parse(data))
-        if (data) {
-            var ws = fs.createWriteStream(filePath.replace(reg, '.bin'))
-              , es = msgpack.createEncodeStream()
-            es.pipe(ws)
-            es.write(data)
-        }
+        var ws = fs.createWriteStream(filePath.replace(reg, '.bin'))
+          , es = msgpack.createEncodeStream()
+        es.pipe(ws)
+        es.write(JSON.parse(data))
     }
 })
